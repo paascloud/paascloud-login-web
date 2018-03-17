@@ -7,7 +7,6 @@
 ``` bash
 npm install
 npm run dev
-npm run build
 ```
 
 ## 项目展示
