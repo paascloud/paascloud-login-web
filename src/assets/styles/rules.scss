@@ -1,0 +1,33 @@
+.pc-page-content {
+  //min-height: 600px;
+  padding: 8px 16px 24px;
+}
+
+.pc-page-content * {
+  font-size: 12px !important;
+}
+
+.pc-page-content .el-input__inner, .pc-page-content .el-button, .pc-page-content .el-textarea__inner {
+  border-radius: 0 !important;
+}
+
+.el-button {
+  border-radius: 0 !important;
+}
+
+//覆盖disabled 禁止样式
+.el-input.is-disabled .el-input__inner {
+  cursor: default;
+}
+
+.el-select .el-input.is-disabled .el-input__inner {
+  cursor: default;
+}
+
+.pc-page-content .pc-router-link {
+  color: #20a0ff;
+}
+
+.pc-page-content .pc-router-link:hover {
+  color: #4db3ff;
+}
