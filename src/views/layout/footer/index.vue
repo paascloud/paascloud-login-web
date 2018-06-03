@@ -9,12 +9,10 @@
 
 <style rel="stylesheet/scss" lang="scss">
   .footer-big {
+    position: absolute;
     width: 100%;
-    overflow: hidden;
     background: #333;
-    position: fixed;
     bottom:0;
-    left:0;
   }
 
   .footer-inner {

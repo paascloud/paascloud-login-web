@@ -23,6 +23,9 @@
   .header {
     background-color: #303643;
     height: 46px;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
   }
   .header-in {
     width: 1000px;
@@ -37,7 +40,7 @@
   }
 
   .header-font {
-    font-size: 16px;
+    font-size: 14px;
     cursor:pointer;
   }
 

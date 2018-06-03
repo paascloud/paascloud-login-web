@@ -65,7 +65,6 @@ li {
 }
 
 html, body {
-  width: 100%;
   height: 100%;
   line-height: 1;
   font-weight: 200;
@@ -80,8 +79,8 @@ body {
 *:first-child+html .clearfix,*html .clearfix,.zoom{zoom:1}
 
 #app {
-  width: 100%;
   height: 100%;
+  overflow: auto;
   position: relative;
 }
 

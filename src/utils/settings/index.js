@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === 'production') {
   gbs.domain = '.paascloud.net';
 } else {
   gbs.domain = '.paascloud.net';
-  gbs.lockr_prefix += 'DEV_';
+  // gbs.lockr_prefix += 'DEV_';
 }
 
 const enums = {
