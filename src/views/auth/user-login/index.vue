@@ -16,8 +16,8 @@
           <img v-lazy="imageCode" @click="getImage"/>
         </div>
         <div class="main-password">
-          <input type="checkbox" class="button" @click="rememberMeFn" :checked="rememberMe" value="Bike" title=""/>
-          <a href="#" style="vertical-align: middle">记住我</a>
+          <input id="button" type="checkbox" class="button" @click="rememberMeFn" :checked="rememberMe" value="Bike" title=""/>
+          <label for="button" class="remMe">记住我</label>
           <a class="fog" @click="loadPage('ResetPwdEmail')">忘记密码?</a>
         </div>
         <button class="login" @click="doLogin">登录</button>
@@ -192,6 +192,7 @@
         float: right;
         color: #e97b21;
         font-size: 16px;
+        cursor: pointer;
       }
     }
     .main-bot {
@@ -217,6 +218,11 @@
         height: 20px;
         line-height: 20px;
         margin-bottom: 10px;
+        .remMe {
+          vertical-align: middle;
+          cursor: pointer;
+          color: #7e8c8d;
+        }
       }
       .login {
         border: 0;

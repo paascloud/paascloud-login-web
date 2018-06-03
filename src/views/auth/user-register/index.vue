@@ -5,7 +5,7 @@
       <div class="main-top">
         <i class="fa fa-user-o fa-lg" aria-hidden="true"></i>
         <span class="register">注册</span>
-        <a href="#" class="zhu" @click="loadPage('Login')">注册</a>
+        <a href="#" class="zhu" @click="loadPage('Login')">登录</a>
       </div>
       <div class="main-bot">
         <div class="field-inline">
@@ -294,6 +294,7 @@
         font-size: 16px !important;
         background-color: #fe7300;
         border: 0;
+        cursor: pointer;
         color: #ffffff;
       }
     }
