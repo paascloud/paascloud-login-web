@@ -265,5 +265,6 @@
 
   .fog {
     float: right;
+    cursor: pointer;
   }
 </style>
