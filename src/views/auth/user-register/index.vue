@@ -66,7 +66,7 @@
         let that = this;
         that.$http({
           method: 'POST',
-          url: '/uac/auth/code/image',
+          url: '/sac/auth/code/image',
           headers: {
             'deviceId': that.deviceId
           }
@@ -99,7 +99,7 @@
             'Content-Type': 'application/x-www-form-urlencoded',
             'deviceId': this.deviceId
           },
-          url: '/uac/auth/register',
+          url: '/sac/auth/register',
           params: this.registerForm
         }).then((res) => {
           this.getImage();
@@ -204,7 +204,7 @@
       },
       checkCount(resolve, validValue, type) {
         this.ajax({
-          url: `/uac/auth/checkValid`,
+          url: `/sac/auth/checkValid`,
           isUnMusk: true,
           data: {
             validValue: validValue,

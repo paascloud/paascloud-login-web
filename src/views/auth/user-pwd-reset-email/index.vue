@@ -47,7 +47,7 @@
             'Content-Type': 'application/x-www-form-urlencoded',
             'deviceId': this.deviceId
           },
-          url: `/uac/auth/submitResetPwdEmail`,
+          url: `/sac/auth/submitResetPwdEmail`,
           params: this.resetPwdEmailForm
         }).then((res) => {
           if (res.code === 200) {
@@ -78,7 +78,7 @@
         } else {
           this.$http({
             method: 'POST',
-            url: '/uac/auth/checkEmailActive/' + email,
+            url: '/sac/auth/checkEmailActive/' + email,
             data: ''
           }).then((res) => {
             that.checkEmailResult = res.result;
@@ -90,7 +90,7 @@
         that.deviceId = new Date().getTime();
         this.$http({
           method: 'POST',
-          url: '/uac/auth/code/image',
+          url: '/sac/auth/code/image',
           headers: {
             'deviceId': that.deviceId
           },

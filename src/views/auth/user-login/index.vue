@@ -28,7 +28,7 @@
           <a href="#"><img src="../../../assets/images/login/git1.png" alt=""></a>
           <a href="#"><img src="../../../assets/images/login/git2.png" alt=""></a>
           <a href="#"><img src="../../../assets/images/login/git3.png" alt=""></a>
-          <a href="/uac/auth/qq"><img src="../../../assets/images/login/git4.png" alt=""></a>
+          <a href="/sac/auth/qq"><img src="../../../assets/images/login/git4.png" alt=""></a>
           <a href="/auth/weixin"><img src="../../../assets/images/login/git5.png" alt=""></a>
         </div>
       </div>
@@ -72,7 +72,7 @@
             'Content-Type': 'application/x-www-form-urlencoded',
             'deviceId': this.deviceId
           },
-          url: '/uac/auth/form',
+          url: '/sac/auth/form',
           auth: {
             username: 'paascloud-client-uac',
             password: 'paascloudClientSecret'
@@ -97,7 +97,7 @@
         let that = this;
         that.$http({
           method: 'POST',
-          url: '/uac/auth/code/image',
+          url: '/sac/auth/code/image',
           headers: {
             'deviceId': that.deviceId
           }

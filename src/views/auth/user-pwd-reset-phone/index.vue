@@ -68,7 +68,7 @@
             'Content-Type': 'application/x-www-form-urlencoded',
             'deviceId': this.deviceId
           },
-          url: `/uac/auth/submitResetPwdPhone`,
+          url: `/sac/auth/submitResetPwdPhone`,
           params: {
             mobile: that.resetPwdPhoneForm.mobileNo,
             smsCode: this.resetPwdPhoneForm.smsCode
@@ -99,7 +99,7 @@
         this.$refs.timerBtn.start();
         this.$http({
           method: 'POST',
-          url: `/uac/auth/code/sms`,
+          url: `/sac/auth/code/sms`,
           headers: {
             'deviceId': this.deviceId
           },
@@ -137,7 +137,7 @@
         }
         this.$http({
           method: 'GET',
-          url: `/uac/auth/code/sms`,
+          url: `/sac/auth/code/sms`,
           headers: {
             'deviceId': that.deviceId
           },
@@ -176,7 +176,7 @@
         } else {
           this.$http({
             method: 'POST',
-            url: '/uac/auth/checkPhoneActive/' + mobileNo,
+            url: '/sac/auth/checkPhoneActive/' + mobileNo,
             data: ''
           }).then((res) => {
             if (!res.result) {
@@ -193,7 +193,7 @@
         let that = this;
         this.$http({
           method: 'GET',
-          url: `/uac/auth/code/image`,
+          url: `/sac/auth/code/image`,
           headers: {
             'deviceId': that.deviceId
           },
@@ -209,7 +209,7 @@
         that.deviceId = new Date().getTime();
         this.$http({
           method: 'POST',
-          url: '/uac/auth/code/image',
+          url: '/sac/auth/code/image',
           headers: {
             'deviceId': that.deviceId
           },

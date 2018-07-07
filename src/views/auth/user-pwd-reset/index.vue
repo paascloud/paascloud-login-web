@@ -65,7 +65,7 @@
             'Content-Type': 'application/x-www-form-urlencoded',
             'deviceId': this.deviceId
           },
-          url: `/uac/auth/resetLoginPwd`,
+          url: `/sac/auth/resetLoginPwd`,
           params: that.resetPwdForm
         }).then((res) => {
           if (res && res.code === 200) {

@@ -20,7 +20,7 @@
       activeUserFn (activeToken) {
         let that = this;
         this.ajax({
-          url: `/uac/auth/activeUser/${activeToken}`,
+          url: `/sac/auth/activeUser/${activeToken}`,
           success: (res) => {
             if (res.status === 200) {
               that.message = '激活用户成功, 请重新登录';
