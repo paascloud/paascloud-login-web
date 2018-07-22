@@ -47,7 +47,7 @@
             'Content-Type': 'application/x-www-form-urlencoded',
             'deviceId': this.deviceId
           },
-          url: `/sac/auth/submitResetPwdEmail`,
+          url: `/web/auth/submitResetPwdEmail`,
           params: this.resetPwdEmailForm
         }).then((res) => {
           if (res.code === 200) {
@@ -78,7 +78,7 @@
         } else {
           this.$http({
             method: 'POST',
-            url: '/sac/auth/checkEmailActive/' + email,
+            url: '/web/auth/checkEmailActive/' + email,
             data: ''
           }).then((res) => {
             that.checkEmailResult = res.result;

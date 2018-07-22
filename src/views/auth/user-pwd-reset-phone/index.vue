@@ -68,7 +68,7 @@
             'Content-Type': 'application/x-www-form-urlencoded',
             'deviceId': this.deviceId
           },
-          url: `/sac/auth/submitResetPwdPhone`,
+          url: `/web/auth/submitResetPwdPhone`,
           params: {
             mobile: that.resetPwdPhoneForm.mobileNo,
             smsCode: this.resetPwdPhoneForm.smsCode
@@ -176,7 +176,7 @@
         } else {
           this.$http({
             method: 'POST',
-            url: '/sac/auth/checkPhoneActive/' + mobileNo,
+            url: '/web/auth/checkPhoneActive/' + mobileNo,
             data: ''
           }).then((res) => {
             if (!res.result) {

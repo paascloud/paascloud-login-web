@@ -17,6 +17,13 @@ module.exports = {
           '^/sac': '/sac'
         }
       },
+      '/web': {
+        target: 'http://dev-api.paascloud.net:7979/',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/web': '/web'
+        }
+      },
     },
 
     // Various Dev Server settings

@@ -99,7 +99,7 @@
             'Content-Type': 'application/x-www-form-urlencoded',
             'deviceId': this.deviceId
           },
-          url: '/sac/auth/register',
+          url: '/web/auth/register',
           params: this.registerForm
         }).then((res) => {
           this.getImage();
@@ -204,7 +204,7 @@
       },
       checkCount(resolve, validValue, type) {
         this.ajax({
-          url: `/sac/auth/checkValid`,
+          url: `/web/auth/checkValid`,
           isUnMusk: true,
           data: {
             validValue: validValue,
