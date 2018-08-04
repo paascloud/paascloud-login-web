@@ -31,7 +31,7 @@
         <div class="register-check-dev">
           <p>验证码</p>
           <input type="text" v-model="registerForm.imageCode" class="inputMa" placeholder="验证码">
-          <img v-lazy="imageCode" @click="getImage" class="check-ma"/>
+          <img v-lazy="imageCode" :key="imageCode" @click="getImage" class="check-ma"/>
         </div>
         <button class="register-btn" @click="submit">注册</button>
       </div>

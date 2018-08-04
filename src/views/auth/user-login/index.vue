@@ -13,7 +13,7 @@
                placeholder="请输入密码"/>
         <div class="image-code-div">
           <input type="text" v-model="loginForm.captchaCode" placeholder="验证码">
-          <img v-lazy="imageCode" @click="getImage"/>
+          <img v-lazy="imageCode" :key="imageCodeKey" @click="getImage"/>
         </div>
         <div class="main-password">
           <input id="button" type="checkbox" class="button" @click="rememberMeFn" :checked="rememberMe" value="Bike" title=""/>
@@ -40,6 +40,7 @@
     data () {
       return {
         imageCode: '',
+        imageCodeKey: '',
         deviceId: '',
         loginForm: {
           loginName: '',
@@ -103,6 +104,7 @@
           }
         }).then((res) => {
           that.imageCode = 'data:image/jpg;base64,' + res.result;
+          that.imageCodeKey = new Date().getTime();
         });
       },
       rememberMeFn() {

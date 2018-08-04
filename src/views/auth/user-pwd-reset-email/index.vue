@@ -12,7 +12,7 @@
           </div>
           <div class="reset-check">
             <input type="text" v-model="resetPwdEmailForm.imageCode" class="input-ma" placeholder="验证码">
-            <img v-lazy="imageCode" @click="getImage" class="captcha-code"/>
+            <img v-lazy="imageCode" :key="imageCode" @click="getImage" class="captcha-code"/>
           </div>
           <input type="button" @click="submitRestPwdWithEmail" value="提交" :class="activeSubmitButton ? 'active-reset-submit-email' : 'inactive-reset-submit-email'">
         </div>

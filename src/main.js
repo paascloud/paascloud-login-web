@@ -111,7 +111,7 @@ Vue.use(VueLazyload, {
   preLoad: 1.3,
   error: '/static/loading-svg/loading-bars.svg',
   loading: '/static/loading-svg/loading-spinning-bubbles.svg',
-  attempt: 2
+  attempt: 1
 });
 Vue.use(infiniteScroll);
 Vue.mixin(Mixin);

@@ -12,7 +12,7 @@
           </div>
           <div class="reset-check">
             <input type="text" v-model="resetPwdPhoneForm.imageCode" @blur="checkImageCode" class="inputMa" placeholder="验证码">
-            <img v-lazy="imageCode" @click="getImage" class="check-ma"/>
+            <img v-lazy="imageCode" :key="imageCode" @click="getImage" class="check-ma"/>
           </div>
           <div class="reset-msg">
             <input class="input-msg" v-model="resetPwdPhoneForm.smsCode" @blur="checkSmsCode" placeholder="短信验证码">
