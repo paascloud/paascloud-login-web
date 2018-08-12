@@ -66,7 +66,6 @@
         if (!code) {
           return;
         }
-        console.info('code, ', code);
         // 如果 code 存在则调用微信登录接口
         this.$http({
           method: 'POST',
@@ -81,12 +80,12 @@
           },
           params: {
             code: this.getUrlParam('code'),
-            state: this.getUrlParam('state'),
-            imageCode: this.loginForm.captchaCode
+            state: this.getUrlParam('state')
           }
         }).then((res) => {
           if (res && res.code === 200) {
-            this.$store.dispatch('update_auth_token', res.result);
+            this.$store.dispatch('update_auth_token', res.result)
+            debugger;
             window.location.href = this.redirectUri;
           }
         }).catch((err) => {
