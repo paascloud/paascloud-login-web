@@ -135,10 +135,12 @@ const mutations = {
   },
   updateRedirectUri (state, redirectUri) {
     state.redirectUri = redirectUri;
-    PcCookie.set({
-      key: enums.USER.REDIRECT_URI,
-      value: redirectUri
-    });
+    if (redirectUri.indexOf('paascloud.net') > 0) {
+      PcCookie.set({
+        key: enums.USER.REDIRECT_URI,
+        value: redirectUri
+      });
+    }
   }
 };
 

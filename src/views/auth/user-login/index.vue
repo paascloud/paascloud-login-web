@@ -29,7 +29,7 @@
           <a href="#"><img src="../../../assets/images/login/git2.png" alt=""></a>
           <a href="#"><img src="../../../assets/images/login/git3.png" alt=""></a>
           <a href="/sac/auth/qq"><img src="../../../assets/images/login/git4.png" alt=""></a>
-          <a href="/auth/weixin"><img src="../../../assets/images/login/git5.png" alt=""></a>
+          <a href="javascript:void(0)" @click="toWxLogin()" ><img src="../../../assets/images/login/git5.png" alt=""></a>
         </div>
       </div>
     </div>
@@ -51,8 +51,52 @@
     },
     mounted () {
       this.getImage();
+      this.weChatLogin();
     },
     methods: {
+      weChatLogin() {
+        let socialWeChatkey = this.$pcCookie.get('PASSCLOUD_PAAS_SOCIAL_WXKEY');
+        if (!socialWeChatkey) {
+          return;
+        }
+        let code = this.getUrlParam('code');
+        if (code) {
+          return;
+        }
+
+        // 如果 code 存在则调用微信登录接口
+        this.$http({
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'deviceId': socialWeChatkey
+          },
+          url: '/sac/socialLogin/weixin',
+          auth: {
+            username: 'paascloud-client-auth',
+            password: 'paascloudClientSecret'
+          },
+          params: {
+            code: this.getUrlParam('code'),
+            state: this.getUrlParam('state'),
+            imageCode: this.loginForm.captchaCode
+          }
+        }).then((res) => {
+          if (res && res.code === 200) {
+            this.$store.dispatch('update_auth_token', res.result);
+            window.location.href = this.redirectUri;
+          }
+        }).catch((err) => {
+          console.log(err);
+        });
+      },
+      toWxLogin() {
+        this.$http.get('/sac/social/qrconnect').then((res) => {
+          window.location.href = res.result;
+        }).catch((err) => {
+          console.log(err);
+        });
+      },
       doLogin () {
         let validateResult = this.formValidate();
         if (!validateResult.status) {

@@ -11,9 +11,9 @@ const gbs = {
 const cbs = {};
 
 if (process.env.NODE_ENV === 'production') {
-  gbs.domain = '.paascloud.net';
+  gbs.domain = '.ngrok.io';
 } else {
-  gbs.domain = '.paascloud.net';
+  gbs.domain = '.ngrok.io';
   gbs.lockr_prefix += 'DEV_';
 }
 
