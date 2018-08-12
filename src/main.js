@@ -44,6 +44,7 @@ Vue.prototype.$pcCookie = PcCookie;
 Vue.prototype.$http = axios.create({
   timeout: 60000
 });
+Vue.prototype.$http.defaults.withCredentials = true;
 
 if (process.env.NODE_ENV === 'production') {
   Vue.prototype.$http.defaults.baseURL = 'http://api.paascloud.net/';

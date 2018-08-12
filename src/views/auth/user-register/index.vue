@@ -99,7 +99,7 @@
             'Content-Type': 'application/x-www-form-urlencoded',
             'deviceId': this.deviceId
           },
-          url: '/web/auth/register',
+          url: '/sac/auth/register',
           params: this.registerForm
         }).then((res) => {
           this.getImage();

@@ -25,17 +25,20 @@
           <hr/><p>其他方式登录</p><hr/>
         </div>
         <div class="last">
-          <a href="#"><img src="../../../assets/images/login/git1.png" alt=""></a>
-          <a href="#"><img src="../../../assets/images/login/git2.png" alt=""></a>
-          <a href="#"><img src="../../../assets/images/login/git3.png" alt=""></a>
-          <a href="/sac/auth/qq"><img src="../../../assets/images/login/git4.png" alt=""></a>
-          <a href="javascript:void(0)" @click="toWxLogin()" ><img src="../../../assets/images/login/git5.png" alt=""></a>
+          <a href="javascript:alert('目前只实现微信登陆')"><img src="../../../assets/images/login/csdn.png" alt="微信可用"></a>
+          <a href="javascript:alert('目前只实现微信登陆')"><img src="../../../assets/images/login/github.png" alt=""></a>
+          <a href="javascript:void(0)" @click="toWxLogin();return false;" >
+            <img src="../../../assets/images/login/wechat.png" alt="">
+          </a>
+          <a href="javascript:alert('目前只实现微信登陆')"><img src="../../../assets/images/login/weibo.png" alt=""></a>
+          <a href="javascript:alert('目前只实现微信登陆')"><img src="../../../assets/images/login/QQ.png" alt=""></a>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script type="text/ecmascript-6">
+  import { PcCookie } from '../../../utils/';
   export default {
     data () {
       return {
@@ -55,21 +58,21 @@
     },
     methods: {
       weChatLogin() {
-        let socialWeChatkey = this.$pcCookie.get('PASSCLOUD_PAAS_SOCIAL_WXKEY');
-        if (!socialWeChatkey) {
+        let weixinKey = PcCookie.get('SOCIAL_WXKEY');
+        if (!weixinKey) {
           return;
         }
         let code = this.getUrlParam('code');
-        if (code) {
+        if (!code) {
           return;
         }
-
+        console.info('code, ', code);
         // 如果 code 存在则调用微信登录接口
         this.$http({
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'deviceId': socialWeChatkey
+            'deviceId': weixinKey
           },
           url: '/sac/socialLogin/weixin',
           auth: {
@@ -91,8 +94,16 @@
         });
       },
       toWxLogin() {
-        this.$http.get('/sac/social/qrconnect').then((res) => {
-          window.location.href = res.result;
+        this.$http({
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          url: '/sac/social/qrconnect'
+        }).then((res) => {
+          if (res && res.code === 200) {
+            window.location.href = res.result;
+          }
         }).catch((err) => {
           console.log(err);
         });
@@ -302,9 +313,9 @@
     .last {
       width: 100%;
       img {
-        width: 42px;
-        height: 42px;
-        margin: 0 12px;
+        width: 32px;
+        height: 32px;
+        margin: 0 18px;
       }
       a:first-child img {
         margin-left: 0;
