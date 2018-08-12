@@ -141,6 +141,7 @@
         }).then((res) => {
           this.getImage();
           if (res && res.code === 200) {
+            console.info('登录成功, ', res);
             this.$store.dispatch('update_auth_token', res.result);
             window.location.href = this.redirectUri;
           }
